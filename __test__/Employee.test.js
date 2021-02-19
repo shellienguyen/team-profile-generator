@@ -8,3 +8,24 @@ test( "Create an employee object.", () => {
    expect( employee.id ).toEqual( expect.any( Number ));
    expect( employee.email ).toEqual( expect.any( String ));
 });
+
+test( "Check to see if can getName() or not.", () => {
+   const testName = "Shellie";
+   const employee = new Employee( testName );
+
+   expect( employee.getName()).toBe( testName );
+});
+
+test( "Check to see if can getId() or not.", () => {
+   const testId = 93847;
+   const employee = new Employee( "Shellie", testId );
+
+   expect( employee.getId()).toBe( testId );
+});
+
+test( "Check to see if can getEmail() or not.", () => {
+   const testEmail = "Shellie@Shellie.Com";
+   const employee = new Employee( "Shellie", 29384, testEmail );
+
+   expect( employee.getEmail()).toBe( testEmail );
+});
