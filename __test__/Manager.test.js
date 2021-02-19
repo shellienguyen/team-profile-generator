@@ -12,5 +12,5 @@ test( "Use getRole() to return \"Manager\" as role.", () => {
    const testRole = "Manager";
    const manager = new Manager( "Shellie", 38472, "Shellie@Shellie.Com", 888 );
 
-   expect( manager.getRole( testRole )).toBe( testRole );
+   expect( manager.getRole()).toBe( testRole );
 });
