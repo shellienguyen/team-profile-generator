@@ -14,7 +14,7 @@ const internQuestions = require( "./lib/Intern-questions" );
 
 // Get user input
 const promptUser = () => {
-   return inquirer.prompt( managerQuestions );
+   return inquirer.prompt( engineerQuestions );
 };
 
 // Generate HTML file
