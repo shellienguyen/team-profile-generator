@@ -2,7 +2,7 @@
 const fs = require( "fs" );
 const inquirer = require( "inquirer" );
 
-const Employee = require( "./lib/Employee" );
+//const Employee = require( "./lib/Employee" );
 const Manager = require( "./lib/Manager" );
 const Engineer = require( "./lib/Engineer" );
 const Intern = require( "./lib/Intern" );
@@ -11,17 +11,38 @@ const addEmployeeQuestion = require( "./lib/add-employee-questions" );
 const managerQuestions = require( "./lib/manager-questions" );
 const engineerQuestions = require( "./lib/engineer-questions" );
 const internQuestions = require( "./lib/intern-questions" );
+const holdHtml = require( "./lib/html-template" );
 
 let teamProfileArr = [];
 
-// Generate HTML file
-function generateHtml( data ) {
-   console.log( "inside generateHtml()" );
+// This function writes the output HTML file
+const writeToFile = ( holdHtmlArr ) => {
+   return new Promise(( resolve, reject ) => {
+      fs.writeFile( `./dist/team-profile.html`, holdHtmlArr.join( "" ), function( err ) {
+         // If there's an error, reject the Promise and send the error to the 
+         // Promise's `.catch() ` method
+         if ( err ) {
+               reject( err );
+            // Return ouf of the function here to make sure the Promise doesn't
+            // accidentally execute the resolve() function as well
+            return;
+           };
+
+         // If everything went well, resolve the Promise and send the succesful
+         // data to the `.then()` method
+         resolve({
+               ok: true,
+               message: 'File created! Your output HTML file is located in the "dist" folder.' 
+           });
+       });
+   });
 };
 
-function writeToFile() {
-   console.log( "inside writeToFile()" );
-}
+// Generate HTML file
+function generateHtmlFile() {
+   const holdHtmlArr = holdHtml.generateHtml( teamProfileArr );
+   writeToFile( holdHtmlArr );
+};
 
 function addInternProfile() {
    inquirer.prompt( internQuestions )
@@ -64,7 +85,7 @@ function addNonManagerTeamMember() {
             addInternProfile();
             break;
          case "Done Generating Profiles":
-            generateHtml();
+            generateHtmlFile();
          break;
       };
    });
