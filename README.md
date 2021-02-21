@@ -39,7 +39,7 @@ Inside VS Code, to view the generated html file, right-click the file and choose
 
 ### Instuctional Video
 
-For a demonstration on how to run this application, please watch this video: https://drive.google.com/file/d/1Pa7xrPJcBPUcLomO1OscujpPZVcEr_Qs/view
+For a demonstration on how to run this application, please watch this video: https://drive.google.com/file/d/1BurizloAeVAuiuBgUJfb4LOGwdm7pWUp/view
 
 ### Screenshots
 
