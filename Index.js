@@ -138,7 +138,16 @@ function init() {
    inquirer.prompt([
       {
          message: "Welcome to the Team Profile Generator.  Input your team name:",
-         name: "teamName"
+         name: "teamName",
+         validate: teamNameInput => {
+            if ( teamNameInput && teamNameInput.trim().length > 0 ) {
+               return true;
+            }
+            else {
+               console.log( "Input your team name:" );
+               return false;
+            };
+         }
       }
    ])
    .then( function( data ) {
