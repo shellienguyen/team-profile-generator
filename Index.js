@@ -21,7 +21,10 @@ let teamProfileArr = [];
 // This function writes the output HTML file.
 const writeToFile = ( holdHtmlArr ) => {
    return new Promise(( resolve, reject ) => {
-      fs.writeFile( `./dist/team-profile.html`, holdHtmlArr.join( "" ), function( err ) {
+      outputFileName = teamProfileArr[ 0 ].toLowerCase();
+      outputFileName = outputFileName.replace( / /g, "-" );
+
+      fs.writeFile( `./dist/${outputFileName}.html`, holdHtmlArr.join( "" ), function( err ) {
          // If there's an error, reject the Promise and send the error to the 
          // Promise's `.catch() ` method.
          if ( err ) {
