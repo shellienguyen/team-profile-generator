@@ -21,6 +21,7 @@ let teamProfileArr = [];
 // This function writes the output HTML file.
 const writeToFile = ( holdHtmlArr ) => {
    return new Promise(( resolve, reject ) => {
+      // Use team name as output file name
       outputFileName = teamProfileArr[ 0 ].toLowerCase();
       outputFileName = outputFileName.replace( / /g, "-" );
 
